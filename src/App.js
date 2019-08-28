@@ -5,9 +5,14 @@ import ItemsContainer from './components/ItemsContainer';
 import data from './dataList';
 import { addItemToCart } from './actions/addToCart.action';
 import { connect } from 'react-redux';
+import CartDetails from './components/CartDetails';
 
 // Container - component : Connected to STORE
 class App extends React.Component {
+
+  state = {
+    displayType: 'items',
+  }
 
   handleAddToCart = (id) => {
     const item = data.find(item => item.id === id);
@@ -17,18 +22,42 @@ class App extends React.Component {
     }
   }
 
+  toggleDisplayType = () => {
+    const { displayType } = this.state;
+    if (displayType === 'items') {
+      this.setState({
+        displayType: 'cartItems',
+      });
+      return;
+    }
+    this.setState({
+      displayType: 'items',
+    });
+  }
+
   render() {
     const { cartItems } = this.props;
+    const { displayType } = this.state;
+    console.log('displayType =', displayType);
     return (
       <div>
         <Header
           title="Shopify - A place to shop cool gadgets"
           cart={cartItems}
+          toggleDisplayType={this.toggleDisplayType}
+          displayType={displayType}
         />
-        <ItemsContainer
-          data={data}
-          addToCart={this.handleAddToCart}
-        />
+        {displayType === 'items' && (
+          <ItemsContainer
+            data={data}
+            addToCart={this.handleAddToCart}
+          />
+        )}
+        {displayType === 'cartItems' && (
+          <CartDetails
+            cart={cartItems}
+          />
+        )}
       </div>
     );
   }

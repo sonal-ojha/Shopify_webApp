@@ -18,7 +18,8 @@
 
 .cart_container {
     width: 25vw;
-    padding-left: 20em;
+    /* padding-left: 20em; */
+    display: flex;
 }
 
 .item_box {
@@ -64,4 +65,24 @@
     font-size: 12px;
     border-radius: 2px solid orange;
     cursor: pointer;
+}
+
+.cart_details {
+    width: 100px;
+    height: 30px;
+    margin-left: 30px;
+}
+
+.cartItemDetails {
+    display: flex;
+    margin: 10px 0px;
+}
+
+.cartItemDetails > .sq_no, .cartItemDetails > .item_name {
+    line-height: 100px;
+    margin-left: 20px; 
+}
+
+.cartItemDetails > .item_box {
+    margin: 0px 20px;
 }

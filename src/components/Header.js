@@ -16,6 +16,9 @@ function Header(props) {
       </div>
       <div className="cart_container">
           <Cart cart={props.cart} />
+          <button className="cart_details" onClick={props.toggleDisplayType}>
+            {props.displayType === 'items' ? 'Cart Details' : 'List of Items'}
+          </button>
       </div>
     </div>
   );
