@@ -1,0 +1,67 @@
+.Header {
+    height: 82px;
+    padding: 25px 25px;
+    border-bottom: 0.2px solid grey;
+    display: flex;
+    justify-content: space-around;
+    box-sizing: border-box;
+}
+
+.header_title {
+    font-size: 22px;
+    font-family: sans-serif;
+    font-weight: 900;
+    font-style: italic;
+    width: 75vw;
+    padding-left: 2em;
+}
+
+.cart_container {
+    width: 25vw;
+    padding-left: 20em;
+}
+
+.item_box {
+    width: 100px;
+    height: 100px;
+}
+
+.item_box > img {
+    width: 100%;
+    height: 100%;
+}
+
+.item_container {
+    display: flex;
+    justify-content: space-around;
+    height: 150px;
+    padding: 20px;
+}
+
+.item_container:nth-child(2n) {
+    background: #ffe;
+}
+.item_container:hover {
+    background: lightgray;
+}
+
+.item_container > .item_name {
+    line-height: 150px;
+}
+.item_container > .item_details {
+    line-height: 150px;
+}
+.item_container > .item_addCart {
+    line-height: 150px;
+}
+
+.item_details > button, .item_addCart > button {
+    width: 100px;
+    height: 30px;
+    background: orange;
+    color: #ffe;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 2px solid orange;
+    cursor: pointer;
+}
